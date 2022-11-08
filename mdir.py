@@ -8,6 +8,4 @@ nd = np.round(nd,2)
 
 for i in nd:
     os.system(f'md {i}')
-    os.system(f'cd {i}')
-    os.system('type nul > .gitignore')
-    os.system('cd..')
+
