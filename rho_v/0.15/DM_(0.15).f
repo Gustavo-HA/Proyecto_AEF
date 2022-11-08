@@ -18,7 +18,7 @@
         open (3,file='rho_energy.dat')
         open (4,file='rho_pressure.dat')
 
-        rho = 0.9
+				rho = 0.15
         T=1.12
         npasos=4000
 
