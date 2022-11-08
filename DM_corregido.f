@@ -17,7 +17,7 @@
         open (2,file='conf.dat',status='unknown')
         open (3,file='rho_energy.dat')
 
-        rho=0.9
+        rho = 0.9
         T=1.12
         npasos=4000
 
