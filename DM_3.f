@@ -15,6 +15,7 @@
         
         open (1, file = 'gr.dat')
         open (2,file='conf.dat',status='unknown')
+        open (3,file='rho_energy.dat')
 
         rho=0.9
         T=1.12
@@ -148,9 +149,11 @@
         write(1,*) r,gdr
         end do
         
+        write(3,*) rho,u
+        
         Close(1)
         Close(2)
-
+        Close(3)
       end program DM
 
 !*************************************************************************************
