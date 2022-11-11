@@ -1,8 +1,8 @@
 ## Copia y modifica el código original ajustandolo a los valores de densidad deseados
 
-
 import os    
 import numpy as np
+
 valores = os.listdir(r'C:\Users\pc\Desktop\Proyecto_AFE\rho_v')
 for rho in valores:
   lineas=[]

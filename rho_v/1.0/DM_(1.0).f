@@ -4,7 +4,7 @@
        program DM
        implicit real*8(a-h,o-z)
 
-       parameter (n=256, ngrx=1000)
+       parameter (n=1372, ngrx=1000)
        dimension x(n),y(n),z(n)
        dimension vx(n),vy(n),vz(n)
        dimension fx(n),fy(n),fz(n)
@@ -15,12 +15,10 @@
         
         open (1, file = 'gr.dat')
         open (2,file='conf.dat',status='unknown')
-        open (3,file='rho_energy.dat')
-        open (4,file='rho_pressure.dat')
 
 				rho = 1.0
         T=1.12
-        npasos=4000
+        npasos=10000
 
         dum = 17367d0
         pi = 4d0 * datan(1d0)
@@ -150,13 +148,10 @@
         write(1,*) r,gdr
         end do
         
-        write(3,*) rho,u
-        write(4,*) rho,ap
 
         Close(1)
         Close(2)
-        Close(3)
-        Close(4)
+
       end program DM
 
 !*************************************************************************************
@@ -166,7 +161,7 @@
       subroutine fcc(lmn, dens, r1x, r1y, r1z, xlx, yly, zlz)
 
       implicit real*8 (a-h, o-z)
-      parameter (num = 256)
+      parameter (num = 1372)
 
        dimension r1x(num), r1y(num), r1z(num)
        dimension sx(4), sy(4), sz(4)

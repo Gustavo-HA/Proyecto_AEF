@@ -12,23 +12,26 @@ def g(rho):
             datos = line.split()
             r = np.append(r,float(datos[0]))
             g = np.append(g,float(datos[1]))
+
     plt.rc('text', usetex=True)
     plt.rc('font', family='serif')
-    plt.plot(r,g, label = r'$\rho = $ '+rho)
-    plt.xlabel(r'Distancia radial r',fontsize = 15)
-    plt.ylabel(r'Probabilidad', fontsize = 15)
-    plt.title(r'\textbf{Función de distribución radial}', fontsize = 15)
-    plt.legend()
-    plt.savefig(f"C://Users//pc//Desktop//Proyecto_AFE//rho_v//{rho}//g(r)_({rho}).png", dpi = 800)
+    plt.grid(linestyle='--', linewidth=0.7)
+    plt.plot(r,g,c='b', label = r'$\rho = $ '+rho)
+    plt.ylim((0,max(g)+1))
+    plt.xlim((0,max(r)))
+    plt.xlabel(r'$ r $',fontsize = 15)
+    plt.ylabel(r'$ g(r) $', fontsize = 15)
+    plt.legend(loc = 'upper right', bbox_to_anchor=(0.9, 0.9), fontsize = 12)
+    plt.gcf().set_size_inches(5, 5)
+    plt.tight_layout()
+    plt.savefig(f"C://Users//pc//Desktop//Proyecto_AFE//Resultados//g(r)_({rho}).png", dpi = 800)
     plt.clf()
-
-## Ejecuta los códigos y saca gráficas
+    
+## Saca gráficas
 
 os.chdir(r'C:\Users\pc\Desktop\Proyecto_AFE\rho_v')
 lista = os.listdir()
 
 for rho in lista:
     os.chdir(f'C://Users//pc//Desktop//Proyecto_AFE//rho_v//{rho}')
-    os.system(f'gfortran DM_({rho}).f')
-    os.system('a.exe')
     g(rho)
