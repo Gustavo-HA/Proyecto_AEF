@@ -1,10 +1,10 @@
- ! Se corrigieron las subrutinas fcc, pbc. Valores 105 --> 200
+ ! Se corrigieron las subrutinas fcc, pbc. ngr 105 --> 200
  ! P10: MD for Lennard-Jones particles
  !
        program DM
        implicit real*8(a-h,o-z)
 
-       parameter (n=1372, ngrx=1000)
+       parameter (n=1372, ngrx=1000) ! n = 4*m^3 , m entero. Si se cambia n también debe cambiarse en la subrutina fcc
        dimension x(n),y(n),z(n)
        dimension vx(n),vy(n),vz(n)
        dimension fx(n),fy(n),fz(n)
@@ -18,7 +18,7 @@
 
         rho = 0.9
         T=1.12
-        npasos=10000
+        npasos=10000          ! anteriormente 4000
 
         dum = 17367d0
         pi = 4d0 * datan(1d0)
@@ -161,7 +161,7 @@
       subroutine fcc(lmn, dens, r1x, r1y, r1z, xlx, yly, zlz)
 
       implicit real*8 (a-h, o-z)
-      parameter (num = 1372)
+      parameter (num = 1372)    ! Debe ser el mismo numero que n
 
        dimension r1x(num), r1y(num), r1z(num)
        dimension sx(4), sy(4), sz(4)

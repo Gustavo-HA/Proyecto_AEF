@@ -24,14 +24,14 @@ for rho in lista:
     u = ((1/r)**(12)-2*(1/r)**(6)) #Adimensional, potencial/epsilon = u / profundidad de pozo de potencial
     u_r = 12*((1/r)**(7)-(1/r)**(13))
     E_f = u*gr*(r**2)
-    P_f = u_r*r*gr
+    P_f = u_r*gr*(r**3)
     I_e = integrate.simpson(E_f,r)
     I_p = integrate.simpson(P_f,r)
     # Energía normalizada E' = E / KTN
     E_normalizada = 3/2 + (2*pi*I_e*float(rho))
     energy = np.append(energy, E_normalizada)
-    # Presión normalizada P' = P/pKT
-    P_normalizada = 1 - (2/3)*pi*float(rho)*I_p
+    # Presión normalizada P' = P/KT
+    P_normalizada = float(rho) - (2/3)*pi*(float(rho)**2)*I_p
     pressure = np.append(pressure,P_normalizada)
 
 
